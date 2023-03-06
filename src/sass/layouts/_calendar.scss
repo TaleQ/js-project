@@ -1,0 +1,259 @@
+.calendar__wrap {
+  position: relative;
+  width: 151px;
+
+  @include tablet {
+    width: 168px;
+  }
+  @include desktop {
+    width: 395px;
+    margin-right: 36px;
+    display: flex;
+  }
+}
+
+.calendar__form {
+  position: relative;
+  width: 100%;
+  @include desktop {
+    display: flex;
+    align-items: baseline;
+  }
+}
+
+.calendar__label {
+  display: none;
+
+  @include desktop {
+    display: block;
+    margin-right: auto;
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: calc(25 / 18);
+  }
+}
+
+.calendar__input {
+  position: relative;
+}
+
+.flatpickr-input {
+  width: 100%;
+  height: 31px;
+  padding-left: 44px;
+  padding-right: 41px;
+  border: 1px solid #111321;
+  border-radius: 20px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: calc(21 / 14);
+  background-color: inherit;
+  color: #A2A2A2;
+  cursor: pointer;
+
+  @include tablet {
+    width: 200px;
+    padding-left: 46px;
+    padding-right: 45px;
+    font-size: 14px;
+  }
+}
+
+.flatpickr-input.is-clicked{
+  background-color: $accent-color;
+  color: $light-text-color;
+  outline: none;
+  border: transparent;
+  &::placeholder {
+    color: $light-text-color;
+  }
+}
+
+.calendar__button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.calendar__button--left {
+  fill: $accent-color;
+  left: 14px;
+}
+.calendar__button--left.is-clicked {
+fill: $light-text-color;
+}
+
+.calendar__button--right {
+  right: 11px;
+}
+.calendar__button--right.arrow-down {
+fill: #A2A2A2;
+}
+.calendar__button--right.arrow-up {
+fill: $light-text-color;
+}
+
+.flatpickr-calendar {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  padding: 27px 16px 20px 16px;
+  width: 250px;
+  height: 250px;
+  right: 0;
+  top: 0;
+  background-color: #f8f8f8;
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  z-index: 10;
+  overflow: hidden;
+  transition: transform $transition-time, opacity $transition-time,
+    visibility $transition-time;
+  font-family: inherit;
+  font-style: normal;
+}
+
+.flatpickr-calendar.open {
+  opacity: 1;
+  visibility: visible;
+  display: inline-block;
+  z-index: 999;
+}
+
+.flatpickr-months {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 13px;
+  width: 100%;
+  height: 22px;
+}
+
+.flatpickr-prev-month,
+.flatpickr-next-month {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flatpickr-months svg {
+  display: block;
+  
+}
+
+.flatpickr-icon {
+  transform: rotate(90deg);
+  width: 9px;
+  height: 17px;
+  fill: $accent-color;
+}
+
+.flatpickr-current-month {
+  width: 200px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: nowrap;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.38;
+  letter-spacing: -0.408px;
+  font-feature-settings: 'case' on;
+}
+
+.cur-month {margin-right: 20px;}
+
+.numInputWrapper {
+  display: flex;
+  width: 70px;
+}
+
+.numInputWrapper span {
+  display: inline-block;
+}
+
+.cur-year {
+  outline: none;
+  border: transparent;
+  background-color: transparent;
+  width: 100%;
+}
+.arrowUp {
+  display: block;
+  fill: $accent-color;
+  width: 7px;
+  height: 12px;
+  z-index: 15;
+}
+
+.arrowDown {
+  display: block;
+  fill: $accent-color;
+  width: 7px;
+  height: 12px;
+  z-index: 15;
+}
+
+.flatpickr-weekdaycontainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.flatpickr-weekday {
+  flex-basis: calc(100% / 7);
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: -0.08px;
+}
+
+.dayContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.flatpickr-day {
+  flex-basis: calc(100% / 7);
+  text-align: center;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.8;
+  letter-spacing: 0.38px;
+  cursor: pointer;
+}
+
+.flatpickr-day.selected {
+  background-color: $accent-color;
+  color: $light-text-color;
+  border-radius: 50%;
+}
+
+.flatpickr-day.disabled,
+.flatpickr-day.disabled:hover {
+  pointer-events: none;
+}
+.flatpickr-day.disabled,
+.flatpickr-day.disabled:hover,
+.flatpickr-day.prevMonthDay,
+.flatpickr-day.nextMonthDay,
+.flatpickr-day.notAllowed,
+.flatpickr-day.notAllowed.prevMonthDay,
+.flatpickr-day.notAllowed.nextMonthDay {
+  color: rgba(57,57,57,0.3);
+  background: transparent;
+  border-color: transparent;
+  cursor: default;
+}
